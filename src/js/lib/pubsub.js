@@ -15,11 +15,13 @@ export default class PubSub {
 
   publish(event, data = {}) {
     let self = this;
-
+    console.log("Self", self.events);
+    console.log("Event..", event);
+    
     if(!self.events.hasOwnProperty(event)){
       return [];
     }
-
+    
     return self.events[event].map(callback => callback(data));
   }
 
